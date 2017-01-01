@@ -38,6 +38,9 @@ if request == 'a':
     key = 'addr'
 
 #如果名字是字典中的有效键才打印信息
+# if name in people:
+#     print "%s's %s is %s." % \
+#     (name, labels[key], people[name][key])
+
 if name in people:
-    print "%s's %s is %s." % \
-    (name, labels[key], people[name][key])
+    print name + '\'s',labels[key],'is',people[name][key]
