@@ -1,6 +1,6 @@
 #coding:utf-8
-#使用get()的简单数据库
 
+#使用get()的简单数据库
 people = {
 
     'Alice': {
