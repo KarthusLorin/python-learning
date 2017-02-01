@@ -1,0 +1,43 @@
+网页下载器
+
+网页下载器：将互联网上URL对应的网页下载到本地的工具。
+下载下来的数据可以保存为本地文件或内存字符串。
+
+Python有哪几种网页下载器？
+1.urllib2——Python官方基础模块
+2.requests——第三方包，更强大
+
+urllib2下载网页方法1：最简洁方法
+urllib2.urlopen(url)
+例子：
+import urllib2
+#直接请求
+response = urllib2.urlopen('http://www.baidu.com')
+#获取状态码，如果是200表示获取成功
+print response.getcode()
+#读取内容
+cont = response.read()
+
+urllib2下载网页方法2：添加data、http header
+例子：
+import urllib2
+#创建Request对象
+request = urllib2.Request(url)
+#添加数据
+request.add_data('a','1')
+#添加http的header（进行伪装）
+request.add_header('User-Agent','Mozilla/5.0')
+#发送请求获取结果
+response = urllib2.urlopen(request)
+
+urllib2下载网页方法3：添加特殊情景的处理器
+例子：
+import urllib2,cookielib
+#创建cookie容器
+cj = cookielib.CookieJar()
+#创建1个opener
+opener = url.build_opener(urllib2.HTTPCookieProcessor(cj))
+#给urllib2安装opener
+urllib2.install_opener(opener)
+#使用带有cookie的urllib2访问网页
+response = urllib2.urlopen("http://www.baidu.com/")
