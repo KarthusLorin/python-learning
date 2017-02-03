@@ -1,0 +1,12 @@
+网页解析器
+
+网页解析器：从网页中提取有价值数据的工具。
+
+Python网页解析器
+1.正则表达式
+2.html.parser
+3.Beautiful Soup（第三方，比较强大，既可以调用html.parser，也可以调用lxml）
+4.lxml（第三方）
+
+在Python网页解析器中，正则表达式是模糊匹配，html.parser，Beautiful Soup，lxml是结构化解析。
+结构化解析——DOM（Document Object Model）树
