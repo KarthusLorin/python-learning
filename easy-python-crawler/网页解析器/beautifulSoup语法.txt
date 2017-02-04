@@ -1,0 +1,43 @@
+Beautiful Soup语法
+
+过程
+1.创建对象：根据一个HTMl网页可以创建一个BeautifulSoup对象，将整个文档对象转化为一个DOM树。
+2.搜索节点：有两个参数一样的方法——find_all、find，他们都可以按照节点名称、属性值、名字来搜索
+    (1)find_all：返回所有符合条件的节点
+    (2)find：返回第一个符合条件的节点
+3.访问节点：可以访问节点的名称、属性、文字
+
+例子：
+<a href='123.html' class='artical_link'>Python</a>
+节点名称：a
+节点属性1：href='123.html'
+节点属性2：class='article_link'
+节点内容：Python
+
+1.创建BeautifulSoup对象
+from bs4 import BeautifulSoup
+#根据HTML网页字符串创建BeautifulSoup对象
+soup = BeautifulSoup(
+    html_doc,                   #HTML文档字符串
+    'html.parser',              #HTML解析器
+    form_encoding='utf8'        #HTML文档的编码
+)
+
+2.搜索节点（find_all,string）
+#方法：find_all(name,attrs,string)
+#查找所有标签为a的节点
+soup.find_all('a)
+#查找所有标签为a，连接符合/view/123.html形式的节点
+soup.find_all('a',href='/view/123.html')
+soup.find_all('a',href=re.compile(r'/view/\d+\.html'))      #正则表达式方法
+#查找所有标签为div，class为abc，文字为Python的节点
+soup.find_all('div',class_='abc',string='Python')
+
+3.访问节点信息
+#得到节点：<a href='1.html'>Python</a>
+#获取查找到的节点的标签名称
+node.name
+#获取查找到的a节点的href属性
+node['href']
+#获取查找到的a节点的链接文字
+node.get_text()
