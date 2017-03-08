@@ -1,0 +1,16 @@
+DB API——数据库游标对象cursor
+
+游标对象：用于执行查询和获取结果
+
+cursor对象支持的方法
+参数名                         说明
+execute(op,[,args])           执行一个数据库查询和命令
+fetchone()                    取的结果集的下一行
+fetchmany(size)               获取结果集的下几行
+fetchall()                    获取结果集中剩下的所有行
+rowcount                      最近一次execute返回数据的行数或影响行数
+close()                       关闭游标对象
+
+execute方法：执行SQL、将结果从数据库获取到客户端
+
+fetch*()方法：移动rownumber，返回数据
