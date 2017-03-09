@@ -11,6 +11,6 @@ fetchall()                    获取结果集中剩下的所有行
 rowcount                      最近一次execute返回数据的行数或影响行数
 close()                       关闭游标对象
 
-execute方法：执行SQL、将结果从数据库获取到客户端
+execute方法：执行SQL、将结果从数据库获取到客户端,返回数据总数
 
 fetch*()方法：移动rownumber，返回数据
